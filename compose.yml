@@ -1,0 +1,23 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: diagnostics
+      MYSQL_USER: diagnostics
+      MYSQL_PASSWORD: diagnostics-local
+      MYSQL_ROOT_PASSWORD: root-local-only
+    ports: ["127.0.0.1:3307:3306"]
+    volumes: ["mysql-data:/var/lib/mysql"]
+  vector:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: diagnostics
+      POSTGRES_USER: diagnostics
+      POSTGRES_PASSWORD: diagnostics-local
+    ports: ["127.0.0.1:5432:5432"]
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./infra/vector-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+volumes:
+  mysql-data:
+  pg-data:

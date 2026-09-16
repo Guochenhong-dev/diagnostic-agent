@@ -1,0 +1,2 @@
+CREATE EXTENSION IF NOT EXISTS vector;
+CREATE TABLE IF NOT EXISTS fault_knowledge(id INTEGER PRIMARY KEY,body TEXT NOT NULL,embedding vector);

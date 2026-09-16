@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS diagnostic_run (
+ id VARCHAR(36) PRIMARY KEY,
+ status VARCHAR(40) NOT NULL,
+ payload LONGTEXT NOT NULL,
+ created_at VARCHAR(40) NOT NULL
+);

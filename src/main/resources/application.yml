@@ -1,0 +1,30 @@
+server:
+  address: 127.0.0.1
+  port: ${PORT:8083}
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:h2:file:./data/diagnostics;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+  sql.init.mode: always
+app:
+  token: ${APP_TOKEN:local-demo-token}
+  projects: ${PROJECTS_DIR:./projects}
+  work: ${WORK_DIR:./work}
+  ai:
+    enabled: ${AI_ENABLED:false}
+    api-key: ${AI_API_KEY:}
+    base-url: ${AI_BASE_URL:https://api.openai.com}
+    model: ${AI_MODEL:gpt-4o-mini}
+  vector:
+    enabled: ${VECTOR_ENABLED:false}
+    url: ${VECTOR_DB_URL:jdbc:postgresql://localhost:5432/diagnostics}
+    user: ${VECTOR_DB_USER:diagnostics}
+    password: ${VECTOR_DB_PASSWORD:diagnostics-local}
+    embedding-url: ${EMBEDDING_URL:https://api.openai.com/v1/embeddings}
+    embedding-key: ${EMBEDDING_KEY:}
+    embedding-model: ${EMBEDDING_MODEL:text-embedding-3-small}
+  runner:
+    enabled: ${RUNNER_ENABLED:false}
+    image: ${RUNNER_IMAGE:diagnostic-test-runner:1}
+    timeout: ${RUNNER_TIMEOUT:90}

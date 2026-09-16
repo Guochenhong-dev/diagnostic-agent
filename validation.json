@@ -1,0 +1,56 @@
+{
+  "method": "Local Maven execution in copied fixtures; Docker and external APIs not exercised",
+  "fixtures": [
+    {
+      "project": "npe",
+      "before": {
+        "exitCode": 1,
+        "tests": 3,
+        "failures": 0,
+        "errors": 1
+      },
+      "after": {
+        "exitCode": 0,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0
+      }
+    },
+    {
+      "project": "config",
+      "before": {
+        "exitCode": 1,
+        "tests": 3,
+        "failures": 0,
+        "errors": 1
+      },
+      "after": {
+        "exitCode": 0,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0
+      }
+    },
+    {
+      "project": "sql",
+      "before": {
+        "exitCode": 1,
+        "tests": 2,
+        "failures": 0,
+        "errors": 2
+      },
+      "after": {
+        "exitCode": 0,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0
+      }
+    }
+  ],
+  "application": {
+    "workflowTests": 5,
+    "packagedHttpSmoke": "passed",
+    "mcpInitializeListAndCall": "passed",
+    "frontendSyntax": "passed"
+  }
+}
